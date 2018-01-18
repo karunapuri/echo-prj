@@ -4,3 +4,21 @@
   "repository": "https://github.com/SunilSyal/Webhook-and-API.AI-Samples.git",
   "keywords": ["api.ai", "dialogflow", "natural language"]
 }
+'use strict';
+
+angular.module('sendmailApp', [])
+.controller('MailController', function ($scope,$http) {
+  $scope.loading = false;
+  $scope.send = function (mail){
+    $scope.loading = true;
+    $http.post('/sendmail', {
+      from: 'SpringerNature <karunapuri29@yahoo.com>',
+      to: 'karuna.puri@springernature.com',
+      subject: 'Message from AngularCode',
+      text: mail.message
+    }).then(res=>{
+        $scope.loading = false;
+        $scope.serverMessage = 'Email sent successfully';
+    });
+  }
+})
