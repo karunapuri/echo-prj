@@ -11,9 +11,9 @@ restService.use(
   })
 );
 
-var nodemailer = require('nodemailer');
+const nodemailer = require('nodemailer');
 
-var transporter = nodemailer.createTransport({
+const transporter = nodemailer.createTransport({
   service: 'gmail',
   auth: {
     user: 'purikaruna@gmail.com',
